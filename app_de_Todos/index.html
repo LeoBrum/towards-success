@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App de Todos</title>
+
+    <link rel="stylesheet" href="/Skylab/Conteúdo/app_de_Todos/style.css">
+
+</head>
+<body>
+    <div id="app" style="border: none;">
+        <ul style="border: solid;"></ul>
+        <input type="text" placeholder="Digite um Todo">
+        <a id="btn-salvar" class="button" href="#">Adicionar</a>
+    </div>
+
+    <script src="todos.js"></script>
+
+    <script type="text/javascript">
+        const buttons = document.querySelectorAll('a');
+        buttons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+
+                let x = e.clientX - e.target.offsetLeft;
+                let y = e.clientY - e.target.offsetTop;
+
+                let ripples = document.createElement('span');
+                ripples.style.left = x + 'px';
+                ripples.style.top = y + 'px';
+                this.appendChild(ripples);
+
+                setTimeout(() => {
+                    ripples.remove()
+                },500);
+
+
+            })
+        })
+    </script>
+    
+</body>
+</html>
